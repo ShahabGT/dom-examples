@@ -28,14 +28,6 @@
       const resultPara = document.querySelector('.result');
 
       btn.addEventListener('click', () => {
-        if (!navigator.canShare) {
-          resultPara.textContent = 'Web Share API not available';
-          return;
-        }
-        if (!navigator.canShare(shareData)) {
-          resultPara.textContent = 'Share data unsupported, disallowed, or invalid';
-          return;
-        }
         navigator.share(shareData)
           .then(() =>
             resultPara.textContent = 'MDN shared successfully'
